@@ -1,0 +1,44 @@
+/* All animation lives here so it is easy to tune or switch off. */
+@keyframes rise { from { transform:translateY(40%); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+@keyframes scroll-x { to { transform:translateX(calc(-50% - 9px)); } }
+@keyframes step-on { 0%,4% { color:var(--muted); } 8%,22% { color:var(--accent); } 28%,100% { color:var(--muted); } }
+@keyframes dot-pulse { 0%,100% { box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent); } 50% { box-shadow:0 0 0 6px transparent; } }
+@keyframes pop { from { opacity:0; transform:scale(.94) translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes lb-in { from { opacity:0; transform:scale(.92) translateY(16px); } to { opacity:1; transform:none; } }
+@keyframes spin-in { from { opacity:0; transform:rotate(-120deg) scale(.4); } to { opacity:1; transform:none; } }
+
+/* one page-load moment: the name, then the copy */
+.hero__name span { animation:rise .8s cubic-bezier(.22,1,.36,1) both; }
+.hero__name span:nth-child(2){animation-delay:.04s} .hero__name span:nth-child(3){animation-delay:.08s} .hero__name span:nth-child(4){animation-delay:.12s}
+.hero__name span:nth-child(5){animation-delay:.16s} .hero__name span:nth-child(7){animation-delay:.24s} .hero__name span:nth-child(8){animation-delay:.28s} .hero__name span:nth-child(9){animation-delay:.32s}
+.hero .eyebrow,.hero__copy,.flow { animation:fadeUp .7s .45s cubic-bezier(.22,1,.36,1) both; } .flow { animation-delay:.6s; }
+
+/* the PDF pipeline lights up step by step */
+.flow li { animation:step-on 10s infinite; }
+.flow li:nth-child(1){animation-delay:0s} .flow li:nth-child(2){animation-delay:1.5s} .flow li:nth-child(3){animation-delay:3s} .flow li:nth-child(4){animation-delay:4.5s} .flow li:nth-child(5){animation-delay:6s}
+
+.marquee__track { animation:scroll-x 38s linear infinite; } .marquee:hover .marquee__track { animation-play-state:paused; }
+
+/* scroll reveal (JS adds .in) */
+.rv { opacity:0; transform:translateY(22px); transition:opacity .6s ease var(--d,0ms), transform .6s cubic-bezier(.22,1,.36,1) var(--d,0ms); }
+.rv.in { opacity:1; transform:none; }
+.card.rv.in:hover { transform:translateY(-4px); transition-delay:0ms; }
+.tile .logo { animation:bob 4.6s ease-in-out infinite; animation-delay:calc(var(--i,0) * -.45s); }
+.tile:hover .logo { animation-play-state:paused; }
+.ai__item .logo,.cert__img { transition:transform .3s; }
+.ai__item.in .logo { animation:spin-in .7s cubic-bezier(.3,1.4,.5,1) both; animation-delay:var(--d,0ms); }
+.ai__item:hover .logo { transform:rotate(-8deg) scale(1.1); }
+.card.pop { animation:pop .45s cubic-bezier(.22,1,.36,1) both; animation-delay:var(--d,0ms); }
+.badge--live::before { animation:dot-pulse 2s infinite; } .avail::before { animation:dot-pulse 2s infinite; }
+.path li.in::after { width:64px; transition:width .8s .1s ease; }
+.lb[open] .lb__box { animation:lb-in .35s cubic-bezier(.22,1,.36,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { animation:none !important; transition-duration:.01ms !important; transition-delay:0ms !important; }
+  .rv { opacity:1; transform:none; }
+  .marquee__track { flex-wrap:wrap; width:auto; justify-content:center; }
+  .marquee__item[aria-hidden="true"] { display:none; }
+}
