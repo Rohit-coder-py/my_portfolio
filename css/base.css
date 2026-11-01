@@ -75,3 +75,10 @@ img { max-width:100%; display:block; }
 
 @media (max-width:860px) { .nav__mark { display:none; } }
 @media (max-width:480px) { body { font-size:16px; } }
+
+mark.green-highlight {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 0.12em 0.3em;
+    border-radius: 4px;
+}
