@@ -123,7 +123,7 @@ window.PORTFOLIO = {
   ai: [
     { group: 'Coding agents',     items: [['Claude Code','claude-code','Coding agent'],['Codex','codex','Coding agent'],['Devin','devin','Software engineer agent']] },
     { group: 'App builders',      items: [['Lovable','lovable','Prompt to app'],['Replit','replit','Browser IDE and agent']] },
-    { group: 'Models & platforms', items: [['DeepSeek','deepseek','Open model'],['GLM 5.1','glm','Zhipu model'],['Kimi','kimi','Latest model'],['Ollama','ollama','Run models locally'],['Hugging Face','huggingface','Models and datasets'],['OpenRouter','openrouter','One API, many models']] }
+    { group: 'Models & platforms', items: [['DeepSeek','deepseek','Open model'],['GLM 5.1','glm','Zhipu model'],['Kimi','kimi','K3.1 PRO'],['Ollama','ollama','Run models locally'],['Hugging Face','huggingface','Models and datasets'],['OpenRouter','openrouter','One API, many models']] }
   ],
 
   certs: [

@@ -1,0 +1,74 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# Build and deployment files
+dist/
+build/
+*.egg-info/
+
+# Node.js dependencies (if applicable)
+node_modules/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Model and dataset files
+*.pkl
+*.joblib
+*.h5
+*.keras
+*.pt
+*.pth
+*.onnx
+*.csv
+*.parquet
+
+# Local databases and vector stores
+chroma_db/
+*.sqlite3
+*.db
+
+# Archives and large files
+*.zip
+*.rar
+*.7z
+
+# Local configuration
+.DS_Store
+*.local
+
+# Specific file
+/p.txt
